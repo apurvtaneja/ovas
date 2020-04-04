@@ -4,22 +4,43 @@
 }
 
 body {
-  background: #ffae3d;
-  background: linear-gradient(to right,  #ffcd78,#ffce85);
+  background: rgb(255, 130, 28);
+  /* background: linear-gradient(180deg, rgba(255,134,30,1) 0%, rgba(255,184,96,1) 37%, rgba(255,208,125,1) 53%, rgba(255,147,74,1) 100%); */
+
+  
   font-family: "Times New Roman", Times, serif;
 }
 
 
 
-
 .dashin{
-  background-color: #ffffff;
   width : 75%;
   height: 75%;
   margin: 5rem;
   border-radius: 15px;
   padding: 2rem;
+  /* background: #FFF7D7; */
+  background: linear-gradient(180deg, rgba(255,230,185,1) 0%, rgba(255,208,125,1) 29%, rgba(255,195,109,1) 40%, rgba(255,184,96,1) 62%, rgba(255,147,74,1) 85%, rgba(255,134,30,1) 100%);
 }
+
+.dashinn{
+  border-radius: 15px;
+  background-color: #fff0bc ;
+  background: linear-gradient(180deg, rgba(255,230,185,1) 0%, rgba(255,208,125,1) 29%, rgba(255,195,109,1) 40%, rgba(255,184,96,1) 62%, rgba(255,147,74,1) 85%, rgba(255,134,30,1) 100%);
+  padding: 2rem;
+  width : 75%;
+  margin-top:2rem;
+}
+
+.attendance{
+  border-radius: 15px;
+  background-color: #FFF4CD;
+  background: linear-gradient(180deg, rgba(255,230,185,1) 0%, rgba(255,208,125,1) 29%, rgba(255,195,109,1) 40%, rgba(255,184,96,1) 62%, rgba(255,147,74,1) 85%, rgba(255,134,30,1) 100%);
+  padding: 2rem;
+  width : 75%;
+  margin-top:2rem;
+}
+
 
 
 .flex-container{
@@ -35,7 +56,7 @@ td{
 .card-signin {
   border: 0;
   border-radius: 1rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px BLACK;
 }
 
 .card-signin .card-title {
@@ -48,27 +69,13 @@ td{
   padding: 2rem;
 }
 
-.attendance{
-  border-radius: 15px;
-  background-color: #fffdf7;
-  padding: 2rem;
-  width : 75%;
-  margin-top:2rem;
-}
 
-.dashinn{
-  border-radius: 15px;
-  background-color: #fff9eb;
-  padding: 2rem;
-  width : 75%;
-  margin-top:2rem;
-}
 
 .form-control{
   border-radius: 20px;
 }
 .att{
-  background-color: #ff0000;
+  background-color: white;
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: .1rem;
@@ -78,11 +85,11 @@ td{
   width: 50%;
 }
 .att:hover{
-  background: #de0000;
+  background: rgb(255, 130, 28);
 }
 
 .at {
-  background: #de0000;
+  background: rgb(255, 130, 28);
 }
 
 #signin{
@@ -96,6 +103,11 @@ td{
 
 }
 
+.btn:active{
+  color: rgb(255, 130, 28);
+}
+
+
 .form-signin {
   width: 100%;
 }
@@ -108,6 +120,7 @@ td{
   padding: 1rem;
   transition: all 0.2s;
 }
+
 
 .form-label-group {
   position: relative;
@@ -196,3 +209,40 @@ td{
     color: #777;
   }
 }
+a {
+  color: whitesmoke ;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:active {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+.demoFont {
+  /* font-family: "Times New Roman", Times, serif; */
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 40px;
+  letter-spacing: 1px;
+  word-spacing: 6px;
+  color: black;
+  /* text-shadow: 7px 4px 5px #A7A7A7; */
+  font-weight: 700;
+  text-decoration: none;
+  font-style: italic;
+  font-variant: small-caps;
+  text-transform: none;
+  }
+ 
+  .btn-primary{
+    color: black;
+  }
+  

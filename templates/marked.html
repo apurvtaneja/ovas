@@ -7,24 +7,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
-  <style>
-    a {
-      color: black;
-      text-decoration: none;
-    }
-    a:hover {
-      color: gold;
-      text-decoration: none;
-    }
-    
-    a:active {
-      color: black;
-    }
-    
-    a:visited {
-      color: black;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+
+  
 </head>
 
 <body>
@@ -32,7 +17,7 @@
 
     <div class="dash">
       <div class="dashin card-signin">
-        <a href="{{ url_for('index') }}">
+        <a class="demoFont" href="{{ url_for('index') }}">
           <h1 class="text-center"><B>OVAS</B></h1>
           <h2 class="text-center"><b>Open Vison Attendance System</b></h2>
         </a>

@@ -9,7 +9,7 @@ def TrackImages(at):
     recognizer.read("TrainnedModel\Trainner.yml")
     harcascadePath = "haarcascade_frontalface_default.xml"
     faceCascade = cv2.CascadeClassifier(harcascadePath)
-    StudentDetails = pd.read_csv("StudentDetails\StudentDetails.csv")
+    # StudentDetails = pd.read_csv("StudentDetails\StudentDetails.csv")
     noOfImages = 0
     font = cv2.FONT_HERSHEY_SIMPLEX
     cam = cv2.VideoCapture(0)
@@ -28,16 +28,19 @@ def TrackImages(at):
             Id, conf = recognizer.predict(gray[y:y + h, x:x + w])
             
             if conf < 50:
-                idName = StudentDetails.loc[StudentDetails['Id'] == Id]['Name'].values
-                VideoTag = str(Id) + "-" + idName
+                c.execute("SELECT Name FROM student_at WHERE Id = " + str(Id))
+                idName = c.fetchone()
+                # idName = StudentDetails.loc[StudentDetails['Id'] == Id]['Name'].values
+                VideoTag = str(Id) + "-" + str(idName)
                 c.execute('UPDATE att_interval SET at' + str(at) + ' = 1 WHERE  Id = '+str(Id))
                 conn.commit()
             else:
                 Id = 'Unknown'
                 VideoTag = str(Id)
             if conf > 75:
-                noOfFile = len(os.listdir("ImagesUnknown")) + 1
-                cv2.imwrite("ImagesUnknown\Image" + str(noOfFile) + ".jpg", img[y:y + h, x:x + w])
+                pass
+                # noOfFile = len(os.listdir("ImagesUnknown")) + 1
+                # cv2.imwrite("ImagesUnknown\Image" + str(noOfFile) + ".jpg", img[y:y + h, x:x + w])
             cv2.putText(img, str(VideoTag), (x, y + h), font, 1, (255, 255, 255), 2)
             cv2.putText(img, 'Number of Faces : ' + str(len(faces)), (40, 40), font, 1, (255, 255, 255), 2)
         cv2.imshow('Recognizing Face!!!', img)
@@ -49,7 +52,7 @@ def TrackImages(at):
     cam.release()
     cv2.destroyAllWindows()
     if at < 4:
-        pause.seconds(1)
+        pause.seconds(2)
         TrackImages(at+1)
     else:
         sqlite_select_query = """SELECT * from att_interval"""
@@ -69,3 +72,21 @@ def TrackImages(at):
         conn.close()
 
 
+def getImagesAndId(path):
+    # get the path of all the files in the folder
+    imagePaths = [os.path.join(path, f)
+                  for f in os.listdir(path)]
+    faces = []  # create empty face list
+    Ids = []  # create empty ID list
+    # now looping through all the image paths and loading the Ids and the images
+    for imagePath in imagePaths:
+        # loading the image and converting it to gray scale
+        grayImage = cv2.imread(imagePath,0)
+        # Now we are converting the image into numpy array
+        imageNp = np.array(grayImage, 'uint8')
+        # getting the Id from the image
+        Id = int(os.path.split(imagePath)[-1].split(".")[1])
+        # extract the face from the training image sample
+        faces.append(imageNp)
+        Ids.append(Id)
+    return faces, Ids

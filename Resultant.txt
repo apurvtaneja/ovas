@@ -1,0 +1,68 @@
+Folder PATH listing
+Volume serial number is 7ADD-2D40
+E:.
+|   app.py
+|   haarcascade_frontalface_default.xml
+|   Procfile
+|   Recognize.py
+|   requirements.txt
+|   Resultant.txt
+|   StudentDetails.db
+|   
++---.vscode
+|       settings.json
+|       
++---ImagesUnknown
+|       Image1.jpg
+|       Image10.jpg
+|       Image2.jpg
+|       Image3.jpg
+|       Image4.jpg
+|       Image5.jpg
+|       Image6.jpg
+|       Image7.jpg
+|       Image8.jpg
+|       Image9.jpg
+|       
++---static
+|   \---css
+|           style.css
+|           
++---StudentDetails
+|       StudentDetails.csv
+|       
++---templates
+|       dashboard.html
+|       index.html
+|       marked.html
+|       recognize.html
+|       register.html
+|       
++---TrainingImage
+|        Apurv Taneja.11710639.1.jpg
+|        Apurv Taneja.11710639.10.jpg
+|        Apurv Taneja.11710639.11.jpg
+|        Apurv Taneja.11710639.12.jpg
+|        Apurv Taneja.11710639.13.jpg
+|        Apurv Taneja.11710639.14.jpg
+|        Apurv Taneja.11710639.15.jpg
+|        Apurv Taneja.11710639.16.jpg
+|        Apurv Taneja.11710639.17.jpg
+|        Apurv Taneja.11710639.18.jpg
+|        Apurv Taneja.11710639.19.jpg
+|        Apurv Taneja.11710639.2.jpg
+|        Apurv Taneja.11710639.20.jpg
+|        Apurv Taneja.11710639.3.jpg
+|        Apurv Taneja.11710639.4.jpg
+|        Apurv Taneja.11710639.5.jpg
+|        Apurv Taneja.11710639.6.jpg
+|        Apurv Taneja.11710639.7.jpg
+|        Apurv Taneja.11710639.8.jpg
+|        Apurv Taneja.11710639.9.jpg
+|       
++---TrainnedModel
+|       Trainner.yml
+|       
+\---__pycache__
+        Recognize.cpython-38.pyc
+        
