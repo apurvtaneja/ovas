@@ -6,7 +6,7 @@ import numpy as np
 import sqlite3
 import os
 import pause
-from master import TrackImages, getImagesAndId
+from master import TrackImages, getImagesAndId,generate
 from flask.helpers import flash
 import glob
 import imutils
@@ -111,11 +111,13 @@ def register():
         return redirect(url_for('video_feed'))
     return render_template('register.html')
 
+
+
 @app.route("/video_feed2")
 def video_feed2():
 	# return the respons    e generated along with the specific media
 	# type (mime type)
-	return Response(TrackImages(),
+	return Response(generate(),
 		mimetype = "multipart/x-mixed-replace; boundary=frame")
 
 
@@ -148,7 +150,7 @@ def marked():
 
 
 if __name__ == "__main__":
-    app.run(debug=True,
+    app.run( host= '0.0.0.0', debug=True,
 		threaded=True, use_reloader=False)
     
 

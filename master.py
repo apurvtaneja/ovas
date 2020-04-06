@@ -3,8 +3,9 @@ import numpy as np
 import pandas as pd
 import sqlite3
 import pause
-
-def TrackImages(sat):
+outputFrame = None
+def TrackImages(at):
+    global outputFrame
     recognizer = cv2.face.LBPHFaceRecognizer_create()  # cv2.createLBPHFaceRecognizer()
     recognizer.read("TrainnedModel\Trainner.yml")
     harcascadePath = "haarcascade_frontalface_default.xml"
@@ -43,10 +44,10 @@ def TrackImages(sat):
                 # cv2.imwrite("ImagesUnknown\Image" + str(noOfFile) + ".jpg", img[y:y + h, x:x + w])
             cv2.putText(img, str(VideoTag), (x, y + h), font, 1, (255, 255, 255), 2)
             cv2.putText(img, 'Number of Faces : ' + str(len(faces)), (40, 40), font, 1, (255, 255, 255), 2)
-        (flag, encodedImage) = cv2.imencode(".jpg", img)
-        yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
-            bytearray(encodedImage) + b'\r\n')
+        # yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
+        #     bytearray(encodedImage) + b'\r\n')
         # break if the sample number is more than 60. Meaning Images are more than 60.
+        outputFrame = img.copy()
         if noOfImages > 20:
             cam.release()
             break
@@ -72,6 +73,14 @@ def TrackImages(sat):
         conn.commit()
         conn.close()
 
+def generate():
+    global outputFrame
+	# yield the output frame in the byte format
+    while True:
+        (flag, encodedImage) = cv2.imencode(".jpg", outputFrame)
+        
+        yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + 
+			bytearray(encodedImage) + b'\r\n')
 
 def getImagesAndId(path):
     # get the path of all the files in the folder
