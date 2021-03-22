@@ -47,7 +47,7 @@ def TakeData():
             # incrementing sample number
             noOfImages = noOfImages+1
             # saving the captured face in the dataset folder TrainingImage
-            cv2.imwrite("TrainingImage\ "+name +"."+Id +'.'+ str(noOfImages) + ".jpg", gray[y:y+h,x:x+w])
+            cv2.imwrite("TrainingImage\ "+name +"."+ Id +'.'+ str(noOfImages) + ".jpg", gray[y:y+h,x:x+w])
             # display the frame
             # cv2.imshow('Taking Images...', img)
             # wait for esc key or q
@@ -150,7 +150,7 @@ def marked():
 
 
 if __name__ == "__main__":
-    app.run( host= '0.0.0.0', debug=True,
+    app.run(debug=True,
 		threaded=True, use_reloader=False)
     
 

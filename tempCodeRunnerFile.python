@@ -1,0 +1,59 @@
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'getSubstringCount' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def getSubstringCount(s):
+    # Write your code here
+    ticker=0
+    zero=0
+    one=0
+    prev = s[0]
+    if prev == 0:
+        zero=zero+1
+    if prev == 1:
+        one = one+1
+    for i in range(1,len(s)+1):
+        if i == 0 or i == 1:
+            curr = s[i]
+            if prev == curr:
+                if curr == 0:
+                    zero=zero+1
+                    prev=curr
+                if curr == 1:
+                    one = one+1
+                    prev= curr
+            if prev != curr:
+                
+                if curr ==0:
+                    zero= zero+1
+                    prev=curr
+                if curr == 1:
+                    one=one+1
+                    prev=curr
+            if one == zero:
+                one=0
+                zero=0
+                ticker = ticker+1
+                
+    return ticker
+            
+
+if __name__ == '__main__':
+
+    s = input()
+
+    result = getSubstringCount(s)
+
+    print(result)

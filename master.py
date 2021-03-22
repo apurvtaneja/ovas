@@ -48,7 +48,7 @@ def TrackImages(at):
         #     bytearray(encodedImage) + b'\r\n')
         # break if the sample number is more than 60. Meaning Images are more than 60.
         outputFrame = img.copy()
-        if noOfImages > 20:
+        if noOfImages > 50:
             cam.release()
             break
     # cam.release()
@@ -77,7 +77,7 @@ def generate():
     global outputFrame
 	# yield the output frame in the byte format
     while True:
-        (flag, encodedImage) = cv2.imencode(".jpg", outputFrame)
+        (flag,encodedImage) = cv2.imencode(".jpg", outputFrame)
         
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + 
 			bytearray(encodedImage) + b'\r\n')
