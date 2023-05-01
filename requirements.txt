@@ -1,4 +1,4 @@
-﻿appdirs==1.4.3
+appdirs==1.4.3
 asgiref==3.2.3
 astroid==2.3.3
 attrs==19.3.0
@@ -14,7 +14,7 @@ dlib==19.19.0
 dodgy==0.2.1
 entrypoints==0.3
 filelock==3.0.12
-Flask==1.1.1
+Flask==2.3.2
 Flask-SQLAlchemy==2.4.1
 gunicorn==20.0.4
 ipykernel==5.1.4
